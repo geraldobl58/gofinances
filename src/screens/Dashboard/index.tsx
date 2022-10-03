@@ -1,3 +1,5 @@
+import { HighlightCard } from "../../components/HighlightCard";
+
 import { 
   Container, 
   Header,
@@ -28,6 +30,8 @@ export function Dashboard() {
           <Icon name="power" />
         </UserContainer>
       </Header>
+
+      <HighlightCard />
     </Container>
   )
 }
