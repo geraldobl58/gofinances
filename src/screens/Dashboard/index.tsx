@@ -6,7 +6,8 @@ import {
   Photo,
   User,
   UserGreeting,
-  UserName 
+  UserName,
+  Icon 
 } from "./styles";
 
 export function Dashboard() {
@@ -16,13 +17,15 @@ export function Dashboard() {
         <UserContainer>
           <UserInfo>
             <Photo 
-              source={{ uri: 'https://pickaface.net/gallery/avatar/unr_johndoe_170608_0222_2q7n9di.png' }}
+              source={{ uri: 'https://avatars.githubusercontent.com/u/22802518?v=4' }}
             />
             <User>
               <UserGreeting>Olá,</UserGreeting>
               <UserName>John Doe</UserName>
             </User>
           </UserInfo>
+
+          <Icon name="power" />
         </UserContainer>
       </Header>
     </Container>
