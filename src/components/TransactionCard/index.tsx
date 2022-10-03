@@ -6,22 +6,39 @@ import {
   Category,
   Icon,
   CategoryName,
-  Date
+  Date,
+  TransactionList
 } from "./styles";
 
-export function TransactionCard() {
+type CategoryProps = {
+  name: string
+  icon: string
+}
+
+type CategoryData = {
+  title: string
+  amount: string
+  category: CategoryProps
+  date: string
+}
+
+type TransactionCardProps = {
+  data: CategoryData
+}
+
+export function TransactionCard({  data }: TransactionCardProps) {
   return (
     <Container>
-      <Title>Mobile</Title>
+      <Title>{data.title}</Title>
 
-      <Ammount>R$ 12.000,00</Ammount>
+      <Ammount>{data.amount}</Ammount>
 
       <Footer>
         <Category>
           <Icon name="dollar-sign" />
-          <CategoryName>Vendas</CategoryName>
+          <CategoryName>{data.category.name}</CategoryName>
         </Category>
-        <Date>13/04/2020</Date>
+        <Date>{data.date}</Date>
       </Footer>
     </Container>
   )
