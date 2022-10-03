@@ -6,8 +6,7 @@ import {
   Category,
   Icon,
   CategoryName,
-  Date,
-  TransactionList
+  Date
 } from "./styles";
 
 type CategoryProps = {
@@ -15,7 +14,7 @@ type CategoryProps = {
   icon: string
 }
 
-type CategoryData = {
+export type TransactionCardPropsData = {
   type: 'positive' | 'negative'
   title: string
   amount: string
@@ -24,7 +23,7 @@ type CategoryData = {
 }
 
 type TransactionCardProps = {
-  data: CategoryData
+  data: TransactionCardPropsData
 }
 
 export function TransactionCard({  data }: TransactionCardProps) {
