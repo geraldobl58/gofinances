@@ -23,7 +23,8 @@ export function Dashboard() {
 
   const data = [
     {
-      title: "Mobile",
+      type: 'positive',
+      title: "Desenvolvimento Mobile",
       amount: "R$ 12.000,00",
       category: {
         name: "Vendas",
@@ -32,20 +33,22 @@ export function Dashboard() {
       date: "13/04/2020"
     },
     {
-      title: "Mobile",
-      amount: "R$ 12.000,00",
+      type: 'negative',
+      title: "Pizza e Refri",
+      amount: "R$ 99,90",
       category: {
-        name: "Vendas",
-        icon: "dollar-sign"
+        name: "Alimentação",
+        icon: "coffee"
       },
       date: "13/04/2020"
     },
     {
-      title: "Mobile",
-      amount: "R$ 12.000,00",
+      type: 'negative',
+      title: "Apartamento",
+      amount: "R$ 2.800,00",
       category: {
-        name: "Vendas",
-        icon: "dollar-sign"
+        name: "Casa",
+        icon: "shopping-bag"
       },
       date: "13/04/2020"
     }
