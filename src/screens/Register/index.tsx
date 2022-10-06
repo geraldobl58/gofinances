@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native'
+
+import { useNavigation } from '@react-navigation/native'
 
 import { useForm } from 'react-hook-form'
 
@@ -15,6 +17,8 @@ import { InputForm } from '../../components/Form/InputForm'
 import * as Yup from 'yup'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+
+import uuid from 'react-native-uuid'
 
 import { 
   Container, 
@@ -51,7 +55,9 @@ export function Register() {
     name: 'Categoria'
   })
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const navigation = useNavigation()
+
+  const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   })
 
@@ -77,10 +83,12 @@ export function Register() {
     }
 
     const newTransaction = {
+      id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
       transactionType,
-      category: category.key
+      category: category.key,
+      date: new Date()
     }
 
     try {
@@ -94,18 +102,20 @@ export function Register() {
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted))
 
+      reset()
+      setTransactionType('')
+      setCategory({
+        key: 'category',
+        name: 'Categoria'
+      })
+
+      navigation.navigate('Listagem')
+
     } catch(error) {
       console.log(error)
       Alert.alert("Não foi possível salvar.")
     }
   }
-
-  useEffect(() => {
-    async function loadData() {
-      await AsyncStorage.getItem(dataKey)
-    }
-    loadData()
-  }, [])
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
