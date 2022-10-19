@@ -6,6 +6,9 @@ import { ThemeProvider } from "styled-components";
 
 import { AppRoutes } from "./src/routes/app.routes";
 
+import "intl";
+import "intl/locale-data/jsonp/pt-BR";
+
 import {
   useFonts,
   Poppins_400Regular,
