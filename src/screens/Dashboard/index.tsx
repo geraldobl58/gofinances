@@ -138,8 +138,14 @@ export function Dashboard() {
       setIsLoading(false)
   }
 
+  function clearAsyncStorage() {
+    const dataKey = '@gofinances:transactions'
+    AsyncStorage.removeItem(dataKey)
+  }
+
   useEffect(() => {
     loadTransaction()
+    //clearAsyncStorage()
   }, [])
 
   useFocusEffect(useCallback(() => {
