@@ -16,9 +16,12 @@ import {
   Poppins_700Bold
 } from '@expo-google-fonts/poppins'
 
-import theme from "./src/global/styles/theme";
+
 import { StatusBar } from "react-native";
 import { SignIn } from "./src/screens/SignIn";
+import { AuthContext } from "./src/AuthContext";
+
+import theme from "./src/global/styles/theme";
 
 export default function App() {
   
@@ -40,7 +43,9 @@ export default function App() {
           translucent
           backgroundColor="transparent" 
         />
-        <SignIn />
+        <AuthContext.Provider value={[]}>
+          <SignIn />
+        </AuthContext.Provider>
       </NavigationContainer>
     </ThemeProvider>
   )
