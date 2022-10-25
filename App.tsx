@@ -18,6 +18,7 @@ import {
 
 import theme from "./src/global/styles/theme";
 import { StatusBar } from "react-native";
+import { SignIn } from "./src/screens/SignIn";
 
 export default function App() {
   
@@ -39,7 +40,7 @@ export default function App() {
           translucent
           backgroundColor="transparent" 
         />
-        <AppRoutes />
+        <SignIn />
       </NavigationContainer>
     </ThemeProvider>
   )
