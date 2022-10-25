@@ -19,9 +19,9 @@ import {
 
 import { StatusBar } from "react-native";
 import { SignIn } from "./src/screens/SignIn";
-import { AuthContext } from "./src/AuthContext";
 
 import theme from "./src/global/styles/theme";
+import { AuthProvider } from "./src/hooks/auth";
 
 export default function App() {
   
@@ -43,9 +43,9 @@ export default function App() {
           translucent
           backgroundColor="transparent" 
         />
-        <AuthContext.Provider value={[]}>
+        <AuthProvider>
           <SignIn />
-        </AuthContext.Provider>
+        </AuthProvider>
       </NavigationContainer>
     </ThemeProvider>
   )
